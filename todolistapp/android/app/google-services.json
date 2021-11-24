@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "709784195078",
+    "project_id": "cawanganapp",
+    "storage_bucket": "cawanganapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709784195078:android:e152f522edcb1d5dbcb387",
+        "android_client_info": {
+          "package_name": "com.example.todolistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709784195078-nor8nsp05ogl38acgavj9jh2f5mjq7h0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq5YP_iF4x61G99114XgcD7Sbewwdy01Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709784195078-nor8nsp05ogl38acgavj9jh2f5mjq7h0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
