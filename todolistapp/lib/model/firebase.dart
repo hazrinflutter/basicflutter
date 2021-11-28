@@ -27,7 +27,11 @@ class Firebase {
   }
 
   Future<void> addCawangan(CawanganModel cawangan) {
-    return _firestore.collection('CAWANGAN').add(cawangan.toMap());
+    return _firestore
+        .collection('CAWANGAN')
+        .add(cawangan.toMap())
+        .then((value) => print('cawangan added'))
+        .catchError((error) => print("Failed to add user: $error"));
   }
 
   Stream<List<CawanganModel>> getCawangan() {

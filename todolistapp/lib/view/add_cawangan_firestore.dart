@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:todolistapp/model/cawangan_model.dart';
 import 'package:todolistapp/model/firebase.dart';
 
 class AddCawanganFirestorePage extends StatefulWidget {
   final String? cawanganName;
   final String? cawanganNegeri;
-  final String? cawanganPoskod;
+  final int? cawanganPoskod;
 
   const AddCawanganFirestorePage(
       {Key? key, this.cawanganName, this.cawanganNegeri, this.cawanganPoskod})
@@ -23,11 +24,10 @@ class _AddCawanganFirestorePageState extends State<AddCawanganFirestorePage> {
 
   @override
   void initState() {
-    _nameController = TextEditingController(text: widget.cawanganName ?? '');
-    _negeriController =
-        TextEditingController(text: widget.cawanganNegeri ?? '');
+    _nameController = TextEditingController(text: widget.cawanganName);
+    _negeriController = TextEditingController(text: widget.cawanganNegeri);
     _poskodController =
-        TextEditingController(text: widget.cawanganPoskod ?? '');
+        TextEditingController(text: widget.cawanganPoskod.toString());
 
     super.initState();
   }
@@ -71,7 +71,9 @@ class _AddCawanganFirestorePageState extends State<AddCawanganFirestorePage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
+              controller: _poskodController,
               keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: const InputDecoration(
                   labelText: 'Poskod', border: OutlineInputBorder()),
             ),
@@ -79,7 +81,6 @@ class _AddCawanganFirestorePageState extends State<AddCawanganFirestorePage> {
           ElevatedButton(
               onPressed: () async {
                 try {
-                  print(_poskodController.text);
                   CawanganModel cawangan = CawanganModel(
                       name: _nameController.text,
                       negeri: _negeriController.text,
@@ -88,6 +89,7 @@ class _AddCawanganFirestorePageState extends State<AddCawanganFirestorePage> {
                   await Firebase().addCawangan(cawangan);
                   Navigator.pop(context);
                 } catch (e) {
+                  // ignore: avoid_print
                   print(e.toString());
                 }
               },
