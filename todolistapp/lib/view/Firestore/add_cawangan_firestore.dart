@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:todolistapp/model/cawangan_model.dart';
-import 'package:todolistapp/model/firebase.dart';
+import 'package:todolistapp/model/firebase_connect.dart';
 
 class AddCawanganFirestorePage extends StatefulWidget {
   final String? cawanganName;
@@ -86,7 +86,7 @@ class _AddCawanganFirestorePageState extends State<AddCawanganFirestorePage> {
                       negeri: _negeriController.text,
                       poskod: int.parse(_poskodController.text));
 
-                  await Firebase().addCawangan(cawangan);
+                  await FirebaseConnect().addCawangan(cawangan);
                   Navigator.pop(context);
                 } catch (e) {
                   // ignore: avoid_print

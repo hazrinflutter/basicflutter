@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:todolistapp/view/add_cawangan_firestore.dart';
+import 'package:todolistapp/view/Firestore/add_cawangan_firestore.dart';
+import 'package:todolistapp/view/Firestore/cawangan_list_firestore.dart';
+import 'package:todolistapp/view/login/home_page.dart';
 //import 'package:todolistapp/view/cawangan_list.dart';
 
 void main() async {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const AddCawanganFirestorePage(),
+      home: const HomePage(),
     );
   }
 }

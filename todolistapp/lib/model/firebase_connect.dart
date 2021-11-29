@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'cawangan_model.dart';
@@ -5,7 +7,7 @@ import 'cawangan_model.dart';
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainCollection = _firestore.collection('cawangans');
 
-class Firebase {
+class FirebaseConnect {
   static String? userUid;
 
   static Future<void> addItem({
